@@ -51,7 +51,7 @@ void Inventory::add(AMateria *newMateria)
 
 void Inventory::removeAt(size_t idx)
 {
-	if (idx >= 0 && idx < this->size_ && this->size_ > 0)
+	if (idx < this->size_ && this->size_ > 0)
 	{
 		for (size_t i = idx; i < this->size_ - 1; ++i)
 		{

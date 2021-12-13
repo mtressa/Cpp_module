@@ -16,8 +16,14 @@ Ice::Ice(const Ice &ice): AMateria(ice)
 	std::cout<<"Ice Copy Constructor\n";
 }
 
+Ice::~Ice()
+{
+	std::cout<<"Ice Destructor\n";
+}
+
 Ice &Ice::operator=(const Ice &ice)
 {
+	(void) ice;
 	std::cout<<"Ice operator=\n";
 	return (*this);
 }

@@ -12,6 +12,7 @@ public:
 	Character(const std::string&);
 	Character(const Character&);
 	Character	&operator=(const Character&);
+	~Character();
 
 	virtual std::string const & getName() const;
 	virtual void equip(AMateria*);

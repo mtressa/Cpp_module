@@ -12,6 +12,11 @@ Character::Character(const Character &character): inventory(character.inventory)
 	std::cout<<"Character Copy Constructor\n";
 }
 
+Character::~Character()
+{
+	std::cout<<"Character "<<this->getName()<<" destructed\n";
+}
+
 Character &Character::operator=(const Character &character)
 {
 	if (this != &character)
@@ -19,6 +24,7 @@ Character &Character::operator=(const Character &character)
 		this->name_ = character.getName();
 		this->inventory = character.inventory;
 	}
+	return (*this);
 }
 
 const std::string &Character::getName() const

@@ -23,6 +23,7 @@ Cure::~Cure()
 
 Cure &Cure::operator=(const Cure &cure)
 {
+	(void) cure;
 	std::cout<<"Cure operator=\n";
 	return (*this);
 }

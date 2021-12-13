@@ -7,7 +7,7 @@ class Inventory
 private:
 	AMateria	**materias_;
 	static const int maxSize_;
-	int size_;
+	size_t size_;
 public:
 	Inventory();
 	Inventory(const Inventory&);
