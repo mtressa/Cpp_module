@@ -25,3 +25,8 @@ AMateria::~AMateria()
 	std::cout<<"AMateria Default Destructor\n";
 }
 
+void AMateria::use(ICharacter &target)
+{
+	std::cout<<"Materia "<<target.getName()<<" use\n";
+}
+
