@@ -12,12 +12,12 @@ public:
 	class	GradeTooHighException : std::exception
 	{
 	public:
-		virtual const char *what() const;
+		virtual const char *what() const throw();
 	};
 	class	GradeTooLowException : std::exception
 	{
 	public:
-		virtual const char *what() const;
+		virtual const char *what() const throw();
 	};
 
 	Bureaucrat();

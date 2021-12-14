@@ -4,12 +4,12 @@
 const int Bureaucrat::maxGrade = 1;
 const int Bureaucrat::minGrade = 150;
 
-const char *Bureaucrat::GradeTooLowException::what() const
+const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low");
 }
 
-const char *Bureaucrat::GradeTooHighException::what() const
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high");
 }
@@ -33,7 +33,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy): _name(copy._name), _grade(copy._
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout<<"Bureaucrat Destructor\n";
+	std::cout<<this->getName()<<" Bureaucrat Destructor\n";
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
@@ -44,6 +44,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 		_grade = copy.getGrade();
 	}
 	std::cout<<"Bureaucrat Copy Assignment\n";
+	return (*this);
 }
 
 const std::string &Bureaucrat::getName() const
