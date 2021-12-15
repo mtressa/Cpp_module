@@ -3,16 +3,16 @@
 #include "../header/RobotomyRequestForm.hpp"
 #include "../header/PresidentialPardonForm.hpp"
 
-const Intern::generators[3] =
+const MyPair Intern::generators[3] =
 {
 	MyPair("robotomy request", &Intern::makeRobotomyForm),
 	MyPair("shrubbery creation", &Intern::makeShrubberyForm),
 	MyPair("presidential pardon", &Intern::makePresidentialForm)
 };
 
-MyPair::MyPair(const str &key, memFunc): key(key), generator(memFunc) {}
+MyPair::MyPair(const str &key, memFunc mf): key(key), generator(mf) {}
 
-memFunc MyPair::operator[](const str &key)
+memFunc MyPair::operator[](const str &key) const
 {
 	if (this->key == key)
 		return (this->generator);
@@ -44,7 +44,7 @@ memFunc Intern::getFormGenerator(const str &name) const
 	memFunc	mf = 0;
 	for (int i = 0; i < 3; i++)
 	{
-		mf = generators[name];
+		mf = (generators[i])[name];
 		if (mf)
 			return (mf);
 	}
@@ -57,11 +57,11 @@ Form *Intern::makeForm(const str &name, const str &target)
 	try
 	{
 		generator = getFormGenerator(name);
-		return (generator(target, name));
+		return ((*generator)(target, name));
 	}
 	catch (Intern::NoFormFound& e)
 	{
-		std:cout<<e.what()<<std::endl;
+		std::cout<<e.what()<<std::endl;
 	}
 	return (0);
 }

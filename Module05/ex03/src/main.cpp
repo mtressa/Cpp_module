@@ -9,4 +9,16 @@ int main()
 	Form* rrf;
 
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	Bureaucrat bc("Levi Ackerman", 130);
+	try
+	{
+		bc.signForm(*rrf);
+		bc.executeForm(*rrf);
+	}
+	catch (std::exception& e)
+	{
+		std::cout<<"Some error beacause "<<e.what()<<std::endl;
+	}
+
+	delete rrf;
 }

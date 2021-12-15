@@ -3,7 +3,8 @@
 #include <string>
 #include "Form.hpp"
 
-typedef sd::string str;
+typedef std::string str;
+class Intern;
 typedef Form *(*memFunc)(const str& target, const str& name);
 
 class MyPair
@@ -12,16 +13,16 @@ class MyPair
 	memFunc		generator;
 public:
 	MyPair(const str& key, memFunc mf);
-	memFunc	operator[](const str& key);
+	memFunc	operator[](const str& key) const;
 };
 
 class Intern
 {
 private:
-	Form	*makeShrubberyForm(const str& target, const str& name);
-	Form	*makeRobotomyForm(const str& target, const str& name);
-	Form	*makePresidentialForm(const str& target, const str& name);
-	memFunc	getFormGenerator(const str& name) const;
+	static Form	*makeShrubberyForm(const str& target, const str& name);
+	static Form	*makeRobotomyForm(const str& target, const str& name);
+	static Form	*makePresidentialForm(const str& target, const str& name);
+	memFunc		getFormGenerator(const str& name) const;
 public:
 
 	class NoFormFound : public std::exception

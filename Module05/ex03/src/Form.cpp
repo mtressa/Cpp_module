@@ -15,7 +15,7 @@ const char *Form::GradeTooLowException::what() const throw()
 
 const char *Form::ExecutingNotSigned::what() const throw()
 {
-	return ("executing not signed form is forbidden");
+	return ("execution of an unsigned form is prohibited");
 }
 
 Form::Form(): _name("Default Form"),
