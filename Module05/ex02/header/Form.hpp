@@ -20,6 +20,11 @@ public:
 	public:
 		virtual const char *what() const throw();
 	};
+	class ExecutingNotSigned : public std::exception
+{
+public:
+	virtual const char *what() const throw();
+};
 private:
 	const str	_name;
 	bool		_bIsSigned;

@@ -90,7 +90,7 @@ void Bureaucrat::executeForm(const Form &form)
 	}
 	catch (std::exception& e)
 	{
-		std::cout<<(*this)<<" cant execute "<<form<<" because "<<e.what()<<std::endl;
+		std::cout<<(*this)<<" cant execute "<<form.getName()<<" because "<<e.what()<<std::endl;
 	}
 }
 

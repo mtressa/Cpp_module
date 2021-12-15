@@ -41,18 +41,15 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-	if (isSigned())
+	checkGradeForExec(executor.getGrade());
+	std::srand(std::time(0));
+	int chance = 1 + std::rand() / ((RAND_MAX + 1u) / 100);
+	if (chance > 50)
 	{
-		checkGradeForExec(executor.getGrade());
-		std::srand(std::time(0));
-		int chance = 1 + std::rand() / ((RAND_MAX + 1u) / 100);
-		if (chance > 50)
-		{
-			std::cout<<_target<<" has been robotomized successfully\n";
-		}
-		else
-			std::cout<<_target<<"'s robotomization has benn failed\n";
+		std::cout<<_target<<" has been robotomized successfully\n";
 	}
+	else
+		std::cout<<_target<<"'s robotomization has benn failed\n";
 }
 
 const str &RobotomyRequestForm::getTarget() const

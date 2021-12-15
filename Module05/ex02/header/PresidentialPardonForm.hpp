@@ -6,7 +6,7 @@
 class PresidentialPardonForm: public Form
 {
 private:
-	const str& _target;
+	const str	_target;
 public:
 	PresidentialPardonForm();
 	PresidentialPardonForm(const str&);

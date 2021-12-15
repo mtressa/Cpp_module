@@ -43,29 +43,26 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
-	if (this->isSigned())
-	{
-		checkGradeForExec(executor.getGrade());
-		const str filename(_target + "_shrubbery");
-		std::ofstream fs(filename, std::ios::app);
+	checkGradeForExec(executor.getGrade());
+	const str filename(_target + "_shrubbery");
+	std::ofstream fs(filename.c_str(), std::ios::app);
 
-		if (fs.is_open(std::ios::app))
-		{
-			str tree = "     ccee88oo\n"
-					   "  C8O8O8Q8PoOb o8oo\n"
-					   " dOB69QO8PdUOpugoO9bD\n"
-					   "CgggbU8OU qOp qOdoUOdcb\n"
-					   "    6OuU  /p u gcoUodpP\n"
-					   "      \\\\\\//  /douUP\n"
-					   "        \\\\\\////\n"
-					   "         |||/\\\n"
-					   "         |||\\/\n"
-					   "         |||||\n"
-					   "   .....//||||\\....\n";
-			fs << tree;
-		}
-		fs.close();
+	if (fs.is_open())
+	{
+		str tree = "     ccee88oo\n"
+				   "  C8O8O8Q8PoOb o8oo\n"
+				   " dOB69QO8PdUOpugoO9bD\n"
+				   "CgggbU8OU qOp qOdoUOdcb\n"
+				   "    6OuU  /p u gcoUodpP\n"
+				   "      \\\\\\//  /douUP\n"
+				   "        \\\\\\////\n"
+				   "         |||/\\\n"
+				   "         |||\\/\n"
+				   "         |||||\n"
+				   "   .....//||||\\....\n\n";
+		fs << tree;
 	}
+	fs.close();
 }
 
 const str &ShrubberyCreationForm::getTarget() const

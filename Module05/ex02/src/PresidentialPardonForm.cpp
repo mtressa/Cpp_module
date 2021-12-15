@@ -24,7 +24,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &cop
 	std::cout<<"PresidentialPardonForm Copy Constructor\n";
 }
 
-PresidentialPardonForm &operator=(const PresidentialPardonForm& copy)
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm& copy)
 {
 	if (this != &copy)
 	{
@@ -41,11 +41,8 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 void PresidentialPardonForm::execute(const Bureaucrat &executor) const
 {
-	if (isSigned())
-	{
-		checkGradeForExec(executor.getGrade());
-		std::cout<<_target<<" has been pardoned by Zafod Beeblebrox\n";
-	}
+	checkGradeForExec(executor.getGrade());
+	std::cout<<_target<<" has been pardoned by Zafod Beeblebrox\n";
 }
 
 const str &PresidentialPardonForm::getTarget() const

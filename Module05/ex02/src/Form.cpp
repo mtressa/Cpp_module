@@ -13,6 +13,11 @@ const char *Form::GradeTooLowException::what() const throw()
 	return ("Grade is too high");
 }
 
+const char *Form::ExecutingNotSigned::what() const throw()
+{
+	return ("executing not signed form is forbidden");
+}
+
 Form::Form(): _name("Default Form"),
 			  _bIsSigned(false),
 			  _minGradeToSign(Form::minGrade),
@@ -96,6 +101,7 @@ void Form::checkGradeForSign(int grade) const
 
 void Form::checkGradeForExec(int grade) const
 {
+	if (!isSigned()) throw ExecutingNotSigned();
 	if (grade > _minGradeToExecute) throw GradeTooLowException();
 }
 
