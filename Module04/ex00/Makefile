@@ -1,4 +1,4 @@
-NAME = coffeemake
+NAME = polymorphism
 SRC = $(wildcard src/*.cpp)
 OBJ = $(patsubst %.cpp, %.o, $(SRC))
 DFILE = $(patsubst %.cpp, %.d, $(SRC))
