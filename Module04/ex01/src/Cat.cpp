@@ -1,7 +1,7 @@
 #include "../header/Cat.hpp"
 #include <iostream>
 
-Cat::Cat(): Animal("Cat")
+Cat::Cat(): WrongAnimal("Cat")
 {
 	this->brain = new Brain();
 	std::cout<<this->getType()<<" constructed ..mrr\n";

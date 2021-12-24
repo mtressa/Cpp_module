@@ -1,7 +1,7 @@
 #include "../header/Dog.hpp"
 #include <iostream>
 
-Dog::Dog(): Animal("Dog")
+Dog::Dog(): WrongAnimal("Dog")
 {
 	this->brain = new Brain();
 	std::cout<<this->getType()<<" ..Grrrr constructed\n";

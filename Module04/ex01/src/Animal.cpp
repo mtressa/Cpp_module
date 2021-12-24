@@ -1,44 +1,44 @@
 #include "../header/Animal.hpp"
 #include <iostream>
 
-Animal::Animal(): type("Animal")
+WrongAnimal::WrongAnimal(): type("WrongAnimal")
 {
-	std::cout<<"Animal of type "<<this->getType()<<" constructed\n";
+	std::cout<<"WrongAnimal of type "<<this->getType()<<" constructed\n";
 }
 
-Animal::Animal(const std::string &newType): type(newType)
+WrongAnimal::WrongAnimal(const std::string &newType): type(newType)
 {
-	std::cout<<"Animal of type "<<this->getType()<<" constructed with Type\n";
+	std::cout<<"WrongAnimal of type "<<this->getType()<<" constructed with Type\n";
 }
 
-Animal::Animal(const Animal &animal): type(animal.type)
+WrongAnimal::WrongAnimal(const WrongAnimal &animal): type(animal.type)
 {
-	std::cout<<"Animal of type "<<this->getType()<<" copy constructed\n";
+	std::cout<<"WrongAnimal of type "<<this->getType()<<" copy constructed\n";
 }
 
-Animal &Animal::operator=(const Animal &animal)
+WrongAnimal &WrongAnimal::operator=(const WrongAnimal &animal)
 {
 	this->setType(animal.type);
-	std::cout<<"Animal of type "<<this->getType()<<" copy assign constructed\n";
+	std::cout<<"WrongAnimal of type "<<this->getType()<<" copy assign constructed\n";
 	return (*this);
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-	std::cout<<"Animal of type "<<this->getType()<<" destructed\n";
+	std::cout<<"WrongAnimal of type "<<this->getType()<<" destructed\n";
 }
 
-const std::string &Animal::getType() const
+const std::string &WrongAnimal::getType() const
 {
 	return (this->type);
 }
 
-void Animal::setType(const std::string &newType)
+void WrongAnimal::setType(const std::string &newType)
 {
 	this->type = newType;
 }
 
-void Animal::makeSound() const
+void WrongAnimal::makeSound() const
 {
 	std::cout<<"Hakuna Matata!\n";
 }

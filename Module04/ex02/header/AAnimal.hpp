@@ -2,14 +2,14 @@
 #define ANIMAL_HPP
 #include <string>
 
-class Animal
+class WrongAnimal
 {
 public:
-	Animal();
-	Animal(const std::string&);
-	Animal(const Animal&);
-	Animal	&operator=(const Animal&);
-	virtual ~Animal();
+	WrongAnimal();
+	WrongAnimal(const std::string&);
+	WrongAnimal(const WrongAnimal&);
+	WrongAnimal	&operator=(const WrongAnimal&);
+	virtual ~WrongAnimal();
 
 	virtual	void makeSound() const = 0;
 

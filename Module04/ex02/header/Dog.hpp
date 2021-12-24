@@ -3,7 +3,7 @@
 #include "AAnimal.hpp"
 #include "Brain.hpp"
 
-class Dog: virtual public Animal
+class Dog: virtual public WrongAnimal
 {
 public:
 	Dog();
