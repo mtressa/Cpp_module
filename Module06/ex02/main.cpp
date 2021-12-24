@@ -1,5 +1,7 @@
 #include "Base.hpp"
-Base* generate(){
+
+Base *generate()
+{
 	std::srand(time(0));
 	int i = rand() % 3;
 	if (i == 0)
@@ -11,7 +13,8 @@ Base* generate(){
 	return new A;
 }
 
-void identify(Base *p){
+void identify(Base *p)
+{
 
 	if (dynamic_cast<A *>(p) != nullptr)
 		std::cout << "Class A *" << std::endl;
@@ -23,33 +26,45 @@ void identify(Base *p){
 		std::cout << "Type does not exist" << std::endl;
 }
 
-void identify(Base& p){
+void identify(Base &p)
+{
 	int err_count = 0;
 	try
 	{
-		dynamic_cast<A*>(&p);
+		(void) dynamic_cast<A &>(p);
 		std::cout << "Class A &" << std::endl;
 		return;
 	}
-	catch (std::bad_cast&) ++err_count;
+	catch (std::bad_cast &)
+	{
+		++err_count;
+	}
 	try
 	{
-		dynamic_cast<B*>(&p);
+		(void) dynamic_cast<B &>(p);
 		std::cout << "Class B &" << std::endl;
 		return;
 	}
-	catch (std::bad_cast&) ++err_count;
+	catch (std::bad_cast &)
+	{
+		++err_count;
+	}
 	try
 	{
-		dynamic_cast<C*>(&p);
+		(void) dynamic_cast<C &>(p);
 		std::cout << "Class C &" << std::endl;
 		return;
-	catch (std::bad_cast&) ++err_count;
+	}
+	catch (std::bad_cast &)
+	{
+		++err_count;
+	}
 	if (err_count == 3)
 		std::cout << "Type does not exist" << std::endl;
 }
 
-int main(){
+int main()
+{
 
 	Base *p = generate();
 
